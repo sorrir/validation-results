@@ -1,0 +1,19 @@
+{
+  "HostConfiguration": {
+    "a": {
+      "host": "localhost",
+      "port": 1234
+    },
+  "DeploymentConfiguration": {
+    "a": {
+      "components": ["component"]
+    },
+  "CommunicationConfiguration": {
+    "connectionTechs": [
+    ]
+  },
+  "MQTTConfiguration": {
+  },
+  "BLEConfiguration": {
+  }
+}

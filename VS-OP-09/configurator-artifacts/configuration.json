@@ -1,0 +1,92 @@
+{
+  "elements": [
+    {
+      "device_name": "desktop-02",
+      "id": "k2h8mb",
+      "architecture": "arm64",
+      "protocols": [
+        "REST",
+        "MQTT",
+        "MQTT_EXTRENAL",
+        "TOM"
+      ],
+      "location": "unknown",
+      "units": [
+        {
+          "id": "unit_2",
+          "components": [
+            {
+              "type": "component",
+              "id": "component",
+              "ports": [
+                {
+                  "name": "FROM_USER",
+                  "eventTypes": [
+                    "DUMMY"
+                  ],
+                  "direction": "in"
+                }
+              ],
+              "connections": [
+                {
+                  "sourceComponent": "user",
+                  "sourcePort": "TO_COMPONENT",
+                  "targetComponent": "component",
+                  "targetPort": "FROM_USER",
+                  "protocol": "REST"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "device_name": "ext",
+      "id": "hruj5h",
+      "architecture": "n/a",
+      "protocols": [
+        "REST",
+        "MQTT",
+        "MQTT_EXTRENAL",
+        "BLE",
+        "TOM"
+      ],
+      "location": "unknown",
+      "units": [
+        {
+          "id": "unit_1",
+          "components": [
+            {
+              "type": "user",
+              "id": "user",
+              "ports": [
+                {
+                  "name": "TO_COMPONENT",
+                  "eventTypes": [
+                    "DUMMY"
+                  ],
+                  "direction": "out"
+                }
+              ],
+              "connections": [
+                {
+                  "sourceComponent": "user",
+                  "sourcePort": "TO_COMPONENT",
+                  "targetComponent": "component",
+                  "targetPort": "FROM_USER",
+                  "protocol": "REST"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "resilienceLibrary": {
+    "directoryPath": ""
+  },
+  "resilienceConfiguration": {},
+  "securityConfiguration": {}
+}

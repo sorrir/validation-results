@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    field.cattle.io/publicEndpoints: '[{"addresses":["10.88.10.101"],"port":32068,"protocol":"TCP","serviceName":"fh-validation:unit-4","allNodes":true},{"addresses":["10.88.10.101"],"port":30321,"protocol":"TCP","serviceName":"fh-validation:unit-4","allNodes":true},{"addresses":["10.88.10.101"],"port":31729,"protocol":"TCP","serviceName":"fh-validation:unit-4","allNodes":true}]'
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"labels":{"app":"sorrir-app","app.kubernetes.io/managed-by":"pulumi"},"name":"unit-4","namespace":"fh-validation"},"spec":{"ports":[{"name":"unit-4","port":1210},{"name":"unit-4-replica1","port":2210},{"name":"unit-4-replica2","port":2211}],"selector":{"app":"unit-4"},"type":"NodePort"}}
+  creationTimestamp: "2022-01-12T11:25:04Z"
+  labels:
+    app: sorrir-app
+    app.kubernetes.io/managed-by: pulumi
+  name: unit-4
+  namespace: fh-validation
+  resourceVersion: "104258232"
+  uid: ebcc1782-19f8-4c32-9617-ab04455306c7
+spec:
+  clusterIP: 10.43.238.255
+  clusterIPs:
+  - 10.43.238.255
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: unit-4
+    nodePort: 32068
+    port: 1210
+    protocol: TCP
+    targetPort: 1210
+  - name: unit-4-replica1
+    nodePort: 30321
+    port: 2210
+    protocol: TCP
+    targetPort: 2210
+  - name: unit-4-replica2
+    nodePort: 31729
+    port: 2211
+    protocol: TCP
+    targetPort: 2211
+  selector:
+    app: unit-4
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

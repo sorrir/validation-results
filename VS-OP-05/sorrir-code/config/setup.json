@@ -1,0 +1,24 @@
+{
+  "componentInstances": {
+    "user": [
+      {
+        "startState": "userStartState",
+        "name": "user"
+      }
+    ],
+    "component": [
+      {
+        "startState": "componentStartState",
+        "name": "component"
+      }
+    ]
+  },
+  "connections": [
+    {
+      "sourceComponent": "user",
+      "sourcePort": "TO_COMPONENT",
+      "targetComponent": "component",
+      "targetPort": "FROM_USER"
+    }
+  ]
+}

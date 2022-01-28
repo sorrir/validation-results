@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    field.cattle.io/publicEndpoints: '[{"addresses":["10.88.10.101"],"port":32558,"protocol":"TCP","serviceName":"fh-validation:unit-2","allNodes":true}]'
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"labels":{"app":"sorrir-app","app.kubernetes.io/managed-by":"pulumi"},"name":"unit-2","namespace":"fh-validation"},"spec":{"ports":[{"name":"unit-2","port":1224}],"selector":{"app":"unit-2"},"type":"NodePort"}}
+  creationTimestamp: "2022-01-12T12:05:42Z"
+  labels:
+    app: sorrir-app
+    app.kubernetes.io/managed-by: pulumi
+  name: unit-2
+  namespace: fh-validation
+  resourceVersion: "104266091"
+  uid: 7b4e20dc-7668-4de4-9d7c-9ee040f25f62
+spec:
+  clusterIP: 10.43.207.95
+  clusterIPs:
+  - 10.43.207.95
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: unit-2
+    nodePort: 32558
+    port: 1224
+    protocol: TCP
+    targetPort: 1224
+  selector:
+    app: unit-2
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

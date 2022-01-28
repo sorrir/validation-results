@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    field.cattle.io/publicEndpoints: '[{"addresses":["10.88.10.101"],"port":31807,"protocol":"TCP","serviceName":"fh-validation:unit-3","allNodes":true},{"addresses":["10.88.10.101"],"port":32553,"protocol":"TCP","serviceName":"fh-validation:unit-3","allNodes":true},{"addresses":["10.88.10.101"],"port":31693,"protocol":"TCP","serviceName":"fh-validation:unit-3","allNodes":true}]'
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"labels":{"app":"sorrir-app","app.kubernetes.io/managed-by":"pulumi"},"name":"unit-3","namespace":"fh-validation"},"spec":{"ports":[{"name":"unit-3","port":1248},{"name":"unit-3-replica1","port":2248},{"name":"unit-3-replica2","port":2249}],"selector":{"app":"unit-3"},"type":"NodePort"}}
+  creationTimestamp: "2022-01-12T11:25:04Z"
+  labels:
+    app: sorrir-app
+    app.kubernetes.io/managed-by: pulumi
+  name: unit-3
+  namespace: fh-validation
+  resourceVersion: "104258233"
+  uid: c95fc8b8-2daa-4cb6-81a0-7f5c06796b41
+spec:
+  clusterIP: 10.43.174.236
+  clusterIPs:
+  - 10.43.174.236
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: unit-3
+    nodePort: 31807
+    port: 1248
+    protocol: TCP
+    targetPort: 1248
+  - name: unit-3-replica1
+    nodePort: 32553
+    port: 2248
+    protocol: TCP
+    targetPort: 2248
+  - name: unit-3-replica2
+    nodePort: 31693
+    port: 2249
+    protocol: TCP
+    targetPort: 2249
+  selector:
+    app: unit-3
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

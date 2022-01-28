@@ -1,0 +1,53 @@
+{
+  "HostConfiguration": {
+    "u_user": {
+      "host": "ext"
+    },
+    "u_component": {
+      "host": "localhost",
+      "port": 1234
+    }
+  },
+  "DeploymentConfiguration": {
+    "u_user": {
+      "components": [
+        "user"
+      ]
+    },
+    "u_component": {
+      "components": [
+        "component"
+      ]
+    }
+  },
+  "CommunicationConfiguration": {
+    "connectionTechs": [
+      {
+        "sourceContainer": "u_user",
+        "sourceComponent": "user",
+        "sourcePort": "TO_COMPONENT",
+        "targetContainer": "u_component",
+        "targetComponent": "component",
+        "targetPort": "FROM_USER",
+        "commOption": "REST"
+      }
+    ]
+  },
+  "MQTTConfiguration": {
+    "host": "test.mosquitto.org"
+  },
+  "BLEConfiguration": {
+    "u_user": {
+      "sendHost": "localhost",
+      "sendPort": 8080,
+      "listenHost": "localhost",
+      "listenPort": 8081
+    },
+    "u_component": {
+      "sendHost": "localhost",
+      "sendPort": 8080,
+      "listenHost": "localhost",
+      "listenPort": 8081
+    }
+  }
+}

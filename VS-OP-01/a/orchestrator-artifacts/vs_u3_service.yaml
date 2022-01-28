@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    field.cattle.io/publicEndpoints: '[{"addresses":["10.88.10.101"],"port":31412,"protocol":"TCP","serviceName":"fh-validation:unit-3","allNodes":true}]'
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"labels":{"app":"sorrir-app","app.kubernetes.io/managed-by":"pulumi"},"name":"unit-3","namespace":"fh-validation"},"spec":{"ports":[{"name":"unit-3","port":1244}],"selector":{"app":"unit-3"},"type":"NodePort"}}
+  creationTimestamp: "2022-01-12T10:46:18Z"
+  labels:
+    app: sorrir-app
+    app.kubernetes.io/managed-by: pulumi
+  name: unit-3
+  namespace: fh-validation
+  resourceVersion: "104251008"
+  uid: a9e057b5-cf98-4364-9f80-b10763f89e9c
+spec:
+  clusterIP: 10.43.203.112
+  clusterIPs:
+  - 10.43.203.112
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: unit-3
+    nodePort: 31412
+    port: 1244
+    protocol: TCP
+    targetPort: 1244
+  selector:
+    app: unit-3
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

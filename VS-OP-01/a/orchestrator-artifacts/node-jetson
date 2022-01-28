@@ -1,0 +1,83 @@
+Name:               jetson-01
+Roles:              <none>
+Labels:             beta.kubernetes.io/arch=arm64
+                    beta.kubernetes.io/instance-type=k3s
+                    beta.kubernetes.io/os=linux
+                    k3s.io/hostname=jetson-01
+                    k3s.io/internal-ip=10.88.6.101
+                    kubernetes.io/arch=arm64
+                    kubernetes.io/hostname=jetson-01
+                    kubernetes.io/os=linux
+                    node.kubernetes.io/instance-type=k3s
+                    sorrir.host.class=jetson
+Annotations:        flannel.alpha.coreos.com/backend-data: {"VtepMAC":"52:1a:59:c8:95:71"}
+                    flannel.alpha.coreos.com/backend-type: vxlan
+                    flannel.alpha.coreos.com/kube-subnet-manager: true
+                    flannel.alpha.coreos.com/public-ip: 10.88.6.101
+                    k3s.io/node-args: ["agent"]
+                    k3s.io/node-config-hash: 3XT3UEYZDMLZGYOMEJ3X2VPMP2KUERDDWEU4VN33ABYYD5ARU4WA====
+                    k3s.io/node-env:
+                      {"K3S_ARGS":"agent","K3S_CLUSTER_SECRET":"********","K3S_DATA_DIR":"/var/lib/rancher/k3s/data/361e543640f8374c1cf244caf8533fad9a5035c10b5b...
+                    node.alpha.kubernetes.io/ttl: 0
+                    sorrir.host.protocols: ["REST","MQTT","MQTT_EXTERNAL","TOM"]
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Tue, 08 Jun 2021 12:00:52 +0200
+Taints:             <none>
+Unschedulable:      false
+Lease:
+  HolderIdentity:  jetson-01
+  AcquireTime:     <unset>
+  RenewTime:       Wed, 12 Jan 2022 12:14:45 +0100
+Conditions:
+  Type                 Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----                 ------  -----------------                 ------------------                ------                       -------
+  NetworkUnavailable   False   Tue, 16 Nov 2021 10:13:19 +0100   Tue, 16 Nov 2021 10:13:19 +0100   FlannelIsUp                  Flannel is running on this node
+  MemoryPressure       False   Wed, 12 Jan 2022 12:13:24 +0100   Tue, 16 Nov 2021 10:13:24 +0100   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure         False   Wed, 12 Jan 2022 12:13:24 +0100   Tue, 16 Nov 2021 10:13:24 +0100   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure          False   Wed, 12 Jan 2022 12:13:24 +0100   Tue, 16 Nov 2021 10:13:24 +0100   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready                True    Wed, 12 Jan 2022 12:13:24 +0100   Tue, 16 Nov 2021 10:13:34 +0100   KubeletReady                 kubelet is posting ready status
+Addresses:
+  InternalIP:  10.88.6.101
+  Hostname:    jetson-01
+Capacity:
+  cpu:                4
+  ephemeral-storage:  3866304Ki
+  hugepages-2Mi:      0
+  memory:             4059268Ki
+  pods:               110
+Allocatable:
+  cpu:                4
+  ephemeral-storage:  3761140529
+  hugepages-2Mi:      0
+  memory:             4059268Ki
+  pods:               110
+System Info:
+  Machine ID:                 54ac127290be41768b34828cf3ead5db
+  System UUID:                54ac127290be41768b34828cf3ead5db
+  Boot ID:                    0fc3f00d-6522-4d3e-b7d5-015a1bf1ef3e
+  Kernel Version:             4.9.140-l4t-r32.1+g69d1806b958e
+  OS Image:                   Poky (Yocto Project Reference Distro) 2.7.4 (warrior)
+  Operating System:           linux
+  Architecture:               arm64
+  Container Runtime Version:  containerd://1.4.3-k3s3
+  Kubelet Version:            v1.20.4+k3s1
+  Kube-Proxy Version:         v1.20.4+k3s1
+PodCIDR:                      10.42.8.0/24
+PodCIDRs:                     10.42.8.0/24
+ProviderID:                   k3s://jetson-01
+Non-terminated Pods:          (4 in total)
+  Namespace                   Name                       CPU Requests  CPU Limits  Memory Requests  Memory Limits  Age
+  ---------                   ----                       ------------  ----------  ---------------  -------------  ---
+  kube-system                 svclb-traefik-wtz7h        0 (0%)        0 (0%)      0 (0%)           0 (0%)         218d
+  logging                     metricbeat-44kbl           100m (2%)     0 (0%)      100Mi (2%)       200Mi (5%)     48d
+  logging                     filebeat-xkdxg             100m (2%)     0 (0%)      100Mi (2%)       200Mi (5%)     48d
+  fh-validation               unit-2-6c5868747f-8dkv8    0 (0%)        0 (0%)      0 (0%)           0 (0%)         28m
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests    Limits
+  --------           --------    ------
+  cpu                200m (5%)   0 (0%)
+  memory             200Mi (5%)  400Mi (10%)
+  ephemeral-storage  0 (0%)      0 (0%)
+  hugepages-2Mi      0 (0%)      0 (0%)
+Events:              <none>

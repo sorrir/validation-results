@@ -1,0 +1,92 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+    field.cattle.io/publicEndpoints: '[{"addresses":["10.88.10.101"],"port":31807,"protocol":"TCP","serviceName":"fh-validation:unit-3","allNodes":true},{"addresses":["10.88.10.101"],"port":32553,"protocol":"TCP","serviceName":"fh-validation:unit-3","allNodes":true},{"addresses":["10.88.10.101"],"port":31693,"protocol":"TCP","serviceName":"fh-validation:unit-3","allNodes":true}]'
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"labels":{"app":"unit-3","app.kubernetes.io/managed-by":"pulumi"},"name":"unit-3","namespace":"fh-validation"},"spec":{"selector":{"matchLabels":{"app":"unit-3"}},"template":{"metadata":{"labels":{"app":"unit-3"},"name":"unit-3"},"spec":{"containers":[{"args":["--","--to-execute","unit_3"],"image":"floriheld/sorrir-validation:1b","imagePullPolicy":"Always","name":"unit-3","volumeMounts":[{"mountPath":"/usr/src/sorrir/app/config","name":"config"}]}],"imagePullSecrets":[{"name":"vs-validation"}],"nodeSelector":{"k3s.io/hostname":"desktop-01"},"volumes":[{"configMap":{"items":[{"key":"production.json","path":"production.json"},{"key":"units.json","path":"units.json"},{"key":"setup.json","path":"setup.json"},{"key":"production.sec.json","path":"production.sec.json"}],"name":"unit-3"},"name":"config"}]}}}}
+  creationTimestamp: "2022-01-12T11:25:05Z"
+  generation: 2
+  labels:
+    app: unit-3
+    app.kubernetes.io/managed-by: pulumi
+  name: unit-3
+  namespace: fh-validation
+  resourceVersion: "104258388"
+  uid: 3b884f3d-a424-49e3-81c8-a3c3a8c98207
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: unit-3
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: unit-3
+      name: unit-3
+    spec:
+      containers:
+      - args:
+        - --
+        - --to-execute
+        - unit_3
+        image: floriheld/sorrir-validation:1b
+        imagePullPolicy: Always
+        name: unit-3
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /usr/src/sorrir/app/config
+          name: config
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: vs-validation
+      nodeSelector:
+        k3s.io/hostname: desktop-01
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          defaultMode: 420
+          items:
+          - key: production.json
+            path: production.json
+          - key: units.json
+            path: units.json
+          - key: setup.json
+            path: setup.json
+          - key: production.sec.json
+            path: production.sec.json
+          name: unit-3
+        name: config
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2022-01-12T11:25:23Z"
+    lastUpdateTime: "2022-01-12T11:25:23Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2022-01-12T11:25:05Z"
+    lastUpdateTime: "2022-01-12T11:25:23Z"
+    message: ReplicaSet "unit-3-8f98f974b" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

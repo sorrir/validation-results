@@ -1,0 +1,35 @@
+apiVersion: v1
+data:
+  production.json: "{\n\t\"HostConfiguration\": {\n\t\t\"unit_2\": {\n\t\t\t\"host\":
+    \"unit-2\",\n\t\t\t\"port\": 1248\n\t\t},\n\t\t\"unit_1\": {\n\t\t\t\"host\":
+    \"unit-1\",\n\t\t\t\"port\": 1253\n\t\t}\n\t},\n\t\"DeploymentConfiguration\":
+    {\n\t\t\"unit_2\": {\n\t\t\t\"components\": [\n\t\t\t\t\"component\"\n\t\t\t],\n\t\t\t\"resilienceLibrary\":
+    {\n\t\t\t\t\"directoryPath\": \"\"\n\t\t\t}\n\t\t},\n\t\t\"unit_1\": {\n\t\t\t\"components\":
+    [\n\t\t\t\t\"user\"\n\t\t\t],\n\t\t\t\"resilienceLibrary\": {\n\t\t\t\t\"directoryPath\":
+    \"\"\n\t\t\t}\n\t\t}\n\t},\n\t\"CommunicationConfiguration\": {\n\t\t\"connectionTechs\":
+    [\n\t\t\t{\n\t\t\t\t\"sourceContainer\": \"unit_1\",\n\t\t\t\t\"sourceComponent\":
+    \"user\",\n\t\t\t\t\"sourcePort\": \"TO_COMPONENT\",\n\t\t\t\t\"targetContainer\":
+    \"unit_2\",\n\t\t\t\t\"targetComponent\": \"component\",\n\t\t\t\t\"targetPort\":
+    \"FROM_USER\",\n\t\t\t\t\"commOption\": \"REST\"\n\t\t\t}\n\t\t]\n\t},\n\t\"MQTTConfiguration\":
+    {\n\t\t\"host\": \"test.mosquitto.org\"\n\t},\n\t\"BLEConfiguration\": {\n\t\t\"unit_2\":
+    {\n\t\t\t\"sendHost\": \"localhost\",\n\t\t\t\"sendPort\": 8080,\n\t\t\t\"listenHost\":
+    \"localhost\",\n\t\t\t\"listenPort\": 8081\n\t\t},\n\t\t\"unit_1\": {\n\t\t\t\"sendHost\":
+    \"localhost\",\n\t\t\t\"sendPort\": 8080,\n\t\t\t\"listenHost\": \"localhost\",\n\t\t\t\"listenPort\":
+    8081\n\t\t}\n\t},\n\t\"ResilienceConfiguration\": {}\n}"
+  production.sec.json: '{}'
+  setup.json: '{"componentInstances":{"component":[{"startState":"componentStartState","name":"component"}],"user":[{"startState":"userStartState","name":"user"}]},"connections":[{"sourceComponent":"user","sourcePort":"TO_COMPONENT","targetComponent":"component","targetPort":"FROM_USER"}]}'
+  test.json: '{"hans":"dampf"}'
+  units.json: '{"units":["unit_2","unit_1"]}'
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"production.json":"{\n\t\"HostConfiguration\": {\n\t\t\"unit_2\": {\n\t\t\t\"host\": \"unit-2\",\n\t\t\t\"port\": 1248\n\t\t},\n\t\t\"unit_1\": {\n\t\t\t\"host\": \"unit-1\",\n\t\t\t\"port\": 1253\n\t\t}\n\t},\n\t\"DeploymentConfiguration\": {\n\t\t\"unit_2\": {\n\t\t\t\"components\": [\n\t\t\t\t\"component\"\n\t\t\t],\n\t\t\t\"resilienceLibrary\": {\n\t\t\t\t\"directoryPath\": \"\"\n\t\t\t}\n\t\t},\n\t\t\"unit_1\": {\n\t\t\t\"components\": [\n\t\t\t\t\"user\"\n\t\t\t],\n\t\t\t\"resilienceLibrary\": {\n\t\t\t\t\"directoryPath\": \"\"\n\t\t\t}\n\t\t}\n\t},\n\t\"CommunicationConfiguration\": {\n\t\t\"connectionTechs\": [\n\t\t\t{\n\t\t\t\t\"sourceContainer\": \"unit_1\",\n\t\t\t\t\"sourceComponent\": \"user\",\n\t\t\t\t\"sourcePort\": \"TO_COMPONENT\",\n\t\t\t\t\"targetContainer\": \"unit_2\",\n\t\t\t\t\"targetComponent\": \"component\",\n\t\t\t\t\"targetPort\": \"FROM_USER\",\n\t\t\t\t\"commOption\": \"REST\"\n\t\t\t}\n\t\t]\n\t},\n\t\"MQTTConfiguration\": {\n\t\t\"host\": \"test.mosquitto.org\"\n\t},\n\t\"BLEConfiguration\": {\n\t\t\"unit_2\": {\n\t\t\t\"sendHost\": \"localhost\",\n\t\t\t\"sendPort\": 8080,\n\t\t\t\"listenHost\": \"localhost\",\n\t\t\t\"listenPort\": 8081\n\t\t},\n\t\t\"unit_1\": {\n\t\t\t\"sendHost\": \"localhost\",\n\t\t\t\"sendPort\": 8080,\n\t\t\t\"listenHost\": \"localhost\",\n\t\t\t\"listenPort\": 8081\n\t\t}\n\t},\n\t\"ResilienceConfiguration\": {}\n}","production.sec.json":"{}","setup.json":"{\"componentInstances\":{\"component\":[{\"startState\":\"componentStartState\",\"name\":\"component\"}],\"user\":[{\"startState\":\"userStartState\",\"name\":\"user\"}]},\"connections\":[{\"sourceComponent\":\"user\",\"sourcePort\":\"TO_COMPONENT\",\"targetComponent\":\"component\",\"targetPort\":\"FROM_USER\"}]}","test.json":"{\"hans\":\"dampf\"}","units.json":"{\"units\":[\"unit_2\",\"unit_1\"]}"},"kind":"ConfigMap","metadata":{"labels":{"app":"unit-2","app.kubernetes.io/managed-by":"pulumi"},"name":"unit-2","namespace":"fh-validation"}}
+  creationTimestamp: "2022-01-12T12:16:52Z"
+  labels:
+    app: unit-2
+    app.kubernetes.io/managed-by: pulumi
+  name: unit-2
+  namespace: fh-validation
+  resourceVersion: "104268342"
+  uid: 11ab8329-f5f6-478f-8a01-ffeee51bca93

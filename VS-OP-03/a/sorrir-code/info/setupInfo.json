@@ -1,0 +1,48 @@
+{
+  "components": {
+    "component": {
+      "name": "component",
+      "ports": [
+        {
+          "name": "FROM_USER",
+          "eventTypes": [
+            "DUMMY"
+          ],
+          "direction": "in"
+        }
+      ],
+      "tsType": "Component"
+    },
+    "user": {
+      "name": "user",
+      "ports": [
+        {
+          "name": "TO_COMPONENT",
+          "eventTypes": [
+            "DUMMY"
+          ],
+          "direction": "out"
+        }
+      ],
+      "tsType": "Component"
+    }
+  },
+  "startStates": {
+    "componentStartState": {
+      "state": {
+        "fsm": "IDLE"
+      },
+      "events": [
+        {
+          "type": "DUMMY"
+        }
+      ],
+      "tsType": "State"
+    },
+    "userStartState": {
+      "state": "userStartState",
+      "events": [],
+      "tsType": "State"
+    }
+  }
+}

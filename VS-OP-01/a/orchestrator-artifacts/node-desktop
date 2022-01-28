@@ -1,0 +1,85 @@
+Name:               desktop-01
+Roles:              <none>
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/instance-type=k3s
+                    beta.kubernetes.io/os=linux
+                    desktop=
+                    k3s.io/hostname=desktop-01
+                    k3s.io/internal-ip=10.88.10.101
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=desktop-01
+                    kubernetes.io/os=linux
+                    node.kubernetes.io/instance-type=k3s
+                    sorrir.host.class=desktop
+Annotations:        flannel.alpha.coreos.com/backend-data: {"VtepMAC":"f2:3a:67:4c:08:0d"}
+                    flannel.alpha.coreos.com/backend-type: vxlan
+                    flannel.alpha.coreos.com/kube-subnet-manager: true
+                    flannel.alpha.coreos.com/public-ip: 10.88.10.101
+                    k3s.io/node-args:
+                      ["agent","--server","https://10.88.1.94:6443","--token","********","--node-name","desktop-01","--node-label","desktop","--disable-selinux"...
+                    k3s.io/node-config-hash: HTXCCZ5XIRS63IZAOAUDN5G4NX2ST5T752LM3MV74DFTCVL5PHMQ====
+                    k3s.io/node-env: {"K3S_DATA_DIR":"/var/lib/rancher/k3s/data/a6857be08414815b83ca6b960373efd98879a0b286fb24cb62b1c5fdbf3a8cb5"}
+                    node.alpha.kubernetes.io/ttl: 0
+                    sorrir.host.protocols: ["REST","MQTT","MQTT_EXTERNAL","TOM"]
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Thu, 01 Jul 2021 16:12:10 +0200
+Taints:             <none>
+Unschedulable:      false
+Lease:
+  HolderIdentity:  desktop-01
+  AcquireTime:     <unset>
+  RenewTime:       Wed, 12 Jan 2022 12:14:45 +0100
+Conditions:
+  Type                 Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----                 ------  -----------------                 ------------------                ------                       -------
+  NetworkUnavailable   False   Wed, 06 Oct 2021 11:03:49 +0200   Wed, 06 Oct 2021 11:03:49 +0200   FlannelIsUp                  Flannel is running on this node
+  MemoryPressure       False   Wed, 12 Jan 2022 12:12:01 +0100   Wed, 06 Oct 2021 11:03:53 +0200   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure         False   Wed, 12 Jan 2022 12:12:01 +0100   Wed, 06 Oct 2021 11:03:53 +0200   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure          False   Wed, 12 Jan 2022 12:12:01 +0100   Wed, 06 Oct 2021 11:03:53 +0200   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready                True    Wed, 12 Jan 2022 12:12:01 +0100   Wed, 06 Oct 2021 11:03:53 +0200   KubeletReady                 kubelet is posting ready status
+Addresses:
+  InternalIP:  10.88.10.101
+  Hostname:    desktop-01
+Capacity:
+  cpu:                4
+  ephemeral-storage:  102283476Ki
+  hugepages-2Mi:      0
+  memory:             16220764Ki
+  pods:               110
+Allocatable:
+  cpu:                4
+  ephemeral-storage:  99501365375
+  hugepages-2Mi:      0
+  memory:             16220764Ki
+  pods:               110
+System Info:
+  Machine ID:                 d3851698b3d843228d4e642568b8bd99
+  System UUID:                2d150ca4-7734-3042-8feb-90511ef49331
+  Boot ID:                    6fc3810b-b6aa-4cd1-bc45-04d76b0391b2
+  Kernel Version:             5.9.16-200.fc33.x86_64
+  OS Image:                   Fedora CoreOS 33.20210104.3.0
+  Operating System:           linux
+  Architecture:               amd64
+  Container Runtime Version:  containerd://1.4.3-k3s3
+  Kubelet Version:            v1.20.4+k3s1
+  Kube-Proxy Version:         v1.20.4+k3s1
+PodCIDR:                      10.42.20.0/24
+PodCIDRs:                     10.42.20.0/24
+ProviderID:                   k3s://desktop-01
+Non-terminated Pods:          (5 in total)
+  Namespace                   Name                       CPU Requests  CPU Limits  Memory Requests  Memory Limits  Age
+  ---------                   ----                       ------------  ----------  ---------------  -------------  ---
+  kube-system                 svclb-traefik-fw8ck        0 (0%)        0 (0%)      0 (0%)           0 (0%)         194d
+  kube-system                 traefik-dc56d8bcf-zml25    0 (0%)        0 (0%)      0 (0%)           0 (0%)         69d
+  logging                     metricbeat-jqg26           100m (2%)     0 (0%)      100Mi (0%)       200Mi (1%)     48d
+  logging                     filebeat-4zc9w             100m (2%)     0 (0%)      100Mi (0%)       200Mi (1%)     48d
+  fh-validation               unit-3-6689bf95c7-sfggs    0 (0%)        0 (0%)      0 (0%)           0 (0%)         28m
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests    Limits
+  --------           --------    ------
+  cpu                200m (5%)   0 (0%)
+  memory             200Mi (1%)  400Mi (2%)
+  ephemeral-storage  0 (0%)      0 (0%)
+  hugepages-2Mi      0 (0%)      0 (0%)
+Events:              <none>
